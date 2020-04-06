@@ -1,0 +1,14 @@
+var switch2;
+
+
+boardReady({board: 'Smart', device: '10dgrbKQ', transport: 'mqtt'}, function (board) {
+  board.systemReset();
+  board.samplingInterval = 50;
+  switch2 = getRelay(board, 5);
+  document.getElementById("demo-area-05-btn1").addEventListener("click",function(){
+    switch2.on();
+  });
+  document.getElementById("demo-area-05-btn2").addEventListener("click",function(){
+    switch2.off();
+  });
+});
